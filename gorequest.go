@@ -385,6 +385,12 @@ func (s *SuperAgent) AppendHeader(param string, value string) *SuperAgent {
 	return s
 }
 
+// ReplaceHeader 替换 Header 每次请求之前都会调用 ClearSuperAgent Header会被重置
+func (s *SuperAgent) ReplaceHeader(header http.Header) *SuperAgent {
+	s.Header = header
+	return s
+}
+
 // Retryable is used for setting a Retryer policy
 // Example. To set Retryer policy with 5 seconds between each attempt.
 //          3 max attempt.
